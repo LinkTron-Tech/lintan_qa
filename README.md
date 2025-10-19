@@ -58,7 +58,7 @@ flowchart LR
 
 ```mermaid
 flowchart TD
-    A[用户提问 + 对话历史] --> B["知识库预处理"]
+    A["用户提问 + 对话历史"] --> B["知识库预处理"]
 
     subgraph 知识库预处理 [LLM并行处理]
         direction TB
@@ -91,14 +91,14 @@ flowchart TD
     E --> F["精选后的Top-K文档片段"]
     A --> G["节点_生成回答"]
     F --> G
-    J[系统提示词] --> G
+    J["系统提示词"] --> G
 
     %% --- 后处理路径 (可选) ---
-    subgraph 节点_后处理 [轻量级LLM]
-        G --> H[Prompt: 引用添加 & 格式化(可选)]
+    subgraph 节点_后处理 ["轻量级LLM"]
+        G --> H["Prompt: 引用添加 & 格式化(可选)"]
     end
 
-    H --> L[最终输出]
+    H --> L["最终输出"]
 
     style C1 fill:#f9f,stroke:#333,stroke-width:2px
     style L fill:#9f9,stroke:#333,stroke-width:2px
