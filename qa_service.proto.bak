@@ -1,0 +1,16 @@
+syntax = "proto3";
+package qa_pipeline;
+
+service QAPipelineService {
+  rpc ProcessQuestion (ProcessQuestionRequest) returns (ProcessQuestionResponse) {}
+}
+
+
+message ProcessQuestionRequest {
+  string question = 1;
+}
+
+message ProcessQuestionResponse {
+  string result_json = 1;
+  double duration_seconds = 2;
+}

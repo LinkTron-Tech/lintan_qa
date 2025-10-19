@@ -1,0 +1,39 @@
+// qa_service.proto
+
+syntax = "proto3";
+
+package qa_pipeline; // 保持你的 package 名称
+
+service QAPipelineService {
+    rpc ProcessQuestion (ProcessQuestionRequest) returns (ProcessQuestionResponse) {}
+}
+
+// 定义角色类型的枚举
+enum RoleType {
+    UNKNOWN_ROLE = 0; // 未知或默认值，避免在旧客户端没有更新时出现错误
+    USER = 1;         // 用户角色
+    ASSISTANT = 2;    // AI模型或助手角色
+    SYSTEM = 3;       // 系统消息，例如提示词
+    TOOL = 4;         // 工具输出
+}
+
+// 定义列表中每个元素的消息结构
+message MessageDetail {
+    RoleType role_type = 1;  // 现在使用枚举类型
+    string content = 2;      // 具体内容
+    string content_type = 3; // 内容类型，例如 "text", "image"
+}
+
+message ProcessQuestionRequest {
+    string id = 1;           // 用于跟踪的ID，可放在内存中处理后释放
+    string question = 2;     // 用户的原始问题
+    repeated MessageDetail messages = 3; // 数组类型的列表，包含对话历史或相关信息
+}
+
+message ProcessQuestionResponse {
+    string result_json = 1;
+
+    double duration_seconds = 2;
+
+    repeated MessageDetail messages = 3;
+}

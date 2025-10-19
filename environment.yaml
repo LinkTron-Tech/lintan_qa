@@ -1,0 +1,12 @@
+pip install volcengine==1.0.191
+pip install openai==1.93.0
+pip install python-decouple==3.8
+pip install tabulate==0.9.0
+pip install grpcio-reflection==1.73.1
+pip install protobuf
+pip install google==3.0.0
+pip install google-auth==2.40.3
+pip install grpcio==1.73.1
+pip install redis==6.2.0
+pip install google-genai==1.23.0
+pip install google-auth==2.40.3
