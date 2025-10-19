@@ -95,7 +95,7 @@ flowchart TD
 
     %% --- 后处理路径 (可选) ---
     subgraph 节点_后处理 [轻量级LLM]
-        G --> H[Prompt: 引用添加 & 格式化]
+        G --> H[Prompt: 引用添加 & 格式化(可选)]
     end
 
     H --> L[最终输出]
